@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EnergyShare Dashboard</title>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -18,13 +17,12 @@
     }
 
     body{
-      background:#003b95;
+      background:#7ec8ff;
       color:white;
       padding:24px;
     }
 
     .container{
-      width:100%;
       max-width:1600px;
       margin:auto;
     }
@@ -35,9 +33,9 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      margin-bottom:30px;
       flex-wrap:wrap;
       gap:20px;
+      margin-bottom:35px;
     }
 
     .header-left{
@@ -48,31 +46,31 @@
     }
 
     .header h1{
-      font-size:54px;
+      font-size:52px;
       font-weight:700;
     }
 
     .top-buttons{
       display:flex;
-      gap:12px;
+      gap:14px;
     }
 
     .top-buttons button{
-      background:#14bfff;
+      background:#00a6ff;
       border:none;
       color:white;
       padding:12px 20px;
-      border-radius:12px;
-      font-size:15px;
+      border-radius:14px;
+      font-size:16px;
       cursor:pointer;
       transition:0.3s;
     }
 
     .top-buttons button:hover{
-      background:#08a8e0;
+      background:#008de0;
     }
 
-    /* CARDS */
+    /* TOP CARDS */
 
     .cards{
       display:grid;
@@ -82,45 +80,43 @@
     }
 
     .card{
-      background:rgba(255,255,255,0.16);
-      border-radius:22px;
-      padding:28px;
-      box-shadow:0 10px 24px rgba(0,0,0,0.22);
+      background:rgba(0,77,153,0.55);
+      padding:30px;
+      border-radius:24px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
     }
 
     .card h3{
-      color:#d5e8ff;
+      color:#d8f1ff;
       margin-bottom:18px;
-      font-size:20px;
-      font-weight:600;
+      font-size:22px;
     }
 
-    .card .number{
+    .number{
       font-size:56px;
       font-weight:700;
-      margin-bottom:12px;
+      margin-bottom:14px;
     }
 
     .green{
-      color:#52ff92;
+      color:#61ff97;
     }
 
     .red{
-      color:#ff8f8f;
+      color:#ff9d9d;
     }
 
     .card p{
       font-size:18px;
-      opacity:0.95;
       line-height:1.5;
     }
 
     /* GRAPH SECTION */
 
     .graph-section{
-      background:rgba(255,255,255,0.16);
+      background:rgba(0,77,153,0.55);
       border-radius:28px;
-      padding:30px;
+      padding:34px;
       margin-bottom:35px;
     }
 
@@ -128,9 +124,9 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      margin-bottom:30px;
       flex-wrap:wrap;
       gap:20px;
+      margin-bottom:30px;
     }
 
     .graph-header h2{
@@ -141,10 +137,11 @@
     .time-buttons{
       display:flex;
       gap:14px;
+      flex-wrap:wrap;
     }
 
     .time-buttons button{
-      background:#2b73ff;
+      background:#1e7dff;
       color:white;
       border:none;
       padding:12px 22px;
@@ -155,7 +152,7 @@
     }
 
     .time-buttons button:hover{
-      background:#4a89ff;
+      background:#4997ff;
     }
 
     /* CHARTS */
@@ -167,25 +164,31 @@
     }
 
     .chart-container{
-      background:white;
+      background:#7ec8ff;
       border-radius:24px;
-      padding:22px;
+      padding:20px;
+    }
+
+    .chart-title{
+      font-size:28px;
+      margin-bottom:16px;
+      color:white;
     }
 
     canvas{
       width:100% !important;
-      height:420px !important;
+      height:380px !important;
     }
 
     /* GREEN NOTE */
 
     .green-note{
       margin-top:24px;
-      background:#2f6697;
-      border-left:5px solid #4cff88;
+      background:#2b6ea5;
+      border-left:5px solid #52ff8d;
       padding:22px;
-      border-radius:14px;
-      font-size:24px;
+      border-radius:16px;
+      font-size:22px;
     }
 
     /* RECOMMENDATIONS */
@@ -203,26 +206,36 @@
     }
 
     .recommendation{
-      background:rgba(255,255,255,0.16);
+      background:rgba(0,77,153,0.55);
       border-radius:24px;
-      padding:34px;
+      padding:32px;
+    }
+
+    .recommendation-header{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-bottom:18px;
+    }
+
+    .emoji{
+      font-size:42px;
     }
 
     .recommendation h3{
-      font-size:32px;
-      margin-bottom:18px;
-      color:#d9eeff;
+      font-size:30px;
+      color:#e6f5ff;
     }
 
     .recommendation p{
-      font-size:24px;
+      font-size:22px;
       line-height:1.7;
     }
 
     /* AI SECTION */
 
     .ai-section{
-      background:rgba(255,255,255,0.16);
+      background:rgba(0,77,153,0.55);
       border-radius:28px;
       padding:34px;
     }
@@ -233,9 +246,9 @@
     }
 
     .ai-section p{
-      font-size:23px;
+      font-size:22px;
       line-height:1.8;
-      margin-bottom:18px;
+      margin-bottom:20px;
     }
 
     .ai-grid{
@@ -246,10 +259,15 @@
     }
 
     .ai-card{
-      background:rgba(255,255,255,0.1);
-      border-radius:20px;
+      background:rgba(255,255,255,0.12);
+      border-radius:22px;
       padding:24px;
       text-align:center;
+    }
+
+    .ai-card .emoji{
+      font-size:46px;
+      margin-bottom:12px;
     }
 
     .ai-card h4{
@@ -272,7 +290,7 @@
     @media(max-width:900px){
 
       .header h1{
-        font-size:40px;
+        font-size:38px;
       }
 
       .graph-header h2{
@@ -280,16 +298,16 @@
       }
 
       .recommendation h3{
-        font-size:26px;
+        font-size:24px;
       }
 
       .recommendation p,
       .ai-section p{
-        font-size:20px;
+        font-size:19px;
       }
 
       canvas{
-        height:300px !important;
+        height:280px !important;
       }
 
     }
@@ -322,7 +340,7 @@
 
   </div>
 
-  <!-- TOP CARDS -->
+  <!-- CARDS -->
 
   <div class="cards">
 
@@ -361,9 +379,15 @@
       <h2>Energy Price Trends & Sustainable Usage Times</h2>
 
       <div class="time-buttons">
-        <button>1 Day</button>
-        <button>3 Days</button>
-        <button>Last Month</button>
+
+        <button onclick="updateCharts('day')">1 Day</button>
+
+        <button onclick="updateCharts('3days')">3 Days</button>
+
+        <button onclick="updateCharts('week')">Week</button>
+
+        <button onclick="updateCharts('month')">Month</button>
+
       </div>
 
     </div>
@@ -371,18 +395,31 @@
     <div class="charts">
 
       <div class="chart-container">
+
+        <div class="chart-title">
+          Energy Price (€ / kWh)
+        </div>
+
         <canvas id="priceChart"></canvas>
+
       </div>
 
       <div class="chart-container">
+
+        <div class="chart-title">
+          Renewable Availability (%)
+        </div>
+
         <canvas id="renewableChart"></canvas>
+
       </div>
 
     </div>
 
     <div class="green-note">
-      Best time to consume energy today: <strong>13:00 - 16:00</strong>
-      because of the lowest pricing and the highest renewable availability.
+      Best time to consume energy today:
+      <strong>13:00 - 16:00</strong>
+      because of the lowest pricing and highest renewable availability.
     </div>
 
   </div>
@@ -396,38 +433,53 @@
   <div class="recommendations">
 
     <div class="recommendation">
-      <h3>Smart Energy Advice</h3>
+
+      <div class="recommendation-header">
+        <div class="emoji">💡</div>
+        <h3>Smart Energy Advice</h3>
+      </div>
 
       <p>
         Run washing machines, EV charging and dishwashers during
         midday solar peaks. This can reduce weekly energy costs
         by approximately 18%.
       </p>
+
     </div>
 
     <div class="recommendation">
-      <h3>Sustainability Recommendation</h3>
+
+      <div class="recommendation-header">
+        <div class="emoji">🌱</div>
+        <h3>Sustainability Recommendation</h3>
+      </div>
 
       <p>
         Your household exported 49.3 kWh this week.
         Installing battery storage could increase local sharing
         efficiency and reduce dependence on external grid imports.
       </p>
+
     </div>
 
     <div class="recommendation">
-      <h3>Peak Pricing Warning</h3>
+
+      <div class="recommendation-header">
+        <div class="emoji">⚡</div>
+        <h3>Peak Pricing Warning</h3>
+      </div>
 
       <p>
         Energy prices remain highest between 18:00 and 21:00.
         Limiting heavy appliance use during these hours can
         significantly reduce costs.
       </p>
+
     </div>
 
   </div>
 
-  <!-- AI TRANSPARENCY -->
+  <!-- AI SECTION -->
 
   <div class="ai-section">
 
@@ -448,42 +500,42 @@
     <div class="ai-grid">
 
       <div class="ai-card">
+        <div class="emoji">📈</div>
         <h4>Supply & Demand</h4>
         <p>
-          Real-time balancing between local energy supply and
-          household demand.
+          Real-time balancing between local energy supply and demand.
         </p>
       </div>
 
       <div class="ai-card">
+        <div class="emoji">☀️</div>
         <h4>Renewable Availability</h4>
         <p>
-          Solar and renewable generation strongly influence
-          local prices.
+          Solar and renewable generation strongly influence pricing.
         </p>
       </div>
 
       <div class="ai-card">
+        <div class="emoji">🕒</div>
         <h4>Time of Day</h4>
         <p>
-          Energy demand peaks during evening hours
-          increase market prices.
+          Evening demand peaks increase market prices.
         </p>
       </div>
 
       <div class="ai-card">
+        <div class="emoji">🌦️</div>
         <h4>Weather Conditions</h4>
         <p>
-          Weather forecasts predict expected solar
-          production and demand.
+          Forecasts predict expected solar production and demand.
         </p>
       </div>
 
       <div class="ai-card">
+        <div class="emoji">🤝</div>
         <h4>Community Sharing</h4>
         <p>
-          Local household trading activity impacts
-          neighborhood pricing efficiency.
+          Local trading activity impacts neighborhood pricing.
         </p>
       </div>
 
@@ -499,55 +551,126 @@
 
 <script>
 
-  // PRICE CHART
+//////////////////////////////////////////////////////
+// DATASETS
+//////////////////////////////////////////////////////
 
-  const priceCtx = document.getElementById('priceChart');
+const datasets = {
 
-  new Chart(priceCtx, {
-    type: 'line',
-    data: {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      datasets: [{
-        label: 'Energy Price (€ / kWh)',
-        data: [0.31, 0.27, 0.24, 0.35, 0.22, 0.19, 0.21],
-        borderColor: '#1f4fbf',
-        backgroundColor: 'rgba(31,79,191,0.12)',
-        fill: true,
-        tension: 0.45,
-        borderWidth: 4,
-        pointRadius: 4
-      }]
-    },
-    options: {
-      responsive:true,
-      maintainAspectRatio:false
-    }
-  });
+  day: {
+    labels: ['00','04','08','12','16','20','24'],
+    price: [0.34,0.29,0.22,0.18,0.21,0.38,0.31],
+    renewable: [20,35,70,95,88,45,22]
+  },
 
-  // RENEWABLE CHART
+  '3days': {
+    labels: ['Day 1','Day 2','Day 3'],
+    price: [0.29,0.35,0.24],
+    renewable: [68,54,91]
+  },
 
-  const renewableCtx = document.getElementById('renewableChart');
+  week: {
+    labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+    price: [0.31,0.27,0.24,0.35,0.22,0.19,0.21],
+    renewable: [58,69,80,55,90,96,90]
+  },
 
-  new Chart(renewableCtx, {
-    type: 'line',
-    data: {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      datasets: [{
-        label: 'Renewable Availability (%)',
-        data: [58, 69, 80, 55, 90, 96, 90],
-        borderColor: '#1dd1a1',
-        backgroundColor: 'rgba(29,209,161,0.15)',
-        fill: true,
-        tension: 0.45,
-        borderWidth: 4,
-        pointRadius: 4
-      }]
-    },
-    options: {
-      responsive:true,
-      maintainAspectRatio:false
-    }
-  });
+  month: {
+    labels: ['Week 1','Week 2','Week 3','Week 4'],
+    price: [0.32,0.28,0.36,0.24],
+    renewable: [65,74,58,92]
+  }
+
+};
+
+//////////////////////////////////////////////////////
+// PRICE CHART
+//////////////////////////////////////////////////////
+
+const priceCtx = document.getElementById('priceChart');
+
+const priceChart = new Chart(priceCtx, {
+
+  type:'line',
+
+  data:{
+    labels: datasets.week.labels,
+
+    datasets:[{
+      label:'Energy Price (€ / kWh)',
+      data: datasets.week.price,
+      borderColor:'#003b95',
+      backgroundColor:'rgba(0,59,149,0.15)',
+      fill:true,
+      tension:0.45,
+      borderWidth:4,
+      pointRadius:5
+    }]
+  },
+
+  options:{
+    responsive:true,
+    maintainAspectRatio:false
+  }
+
+});
+
+//////////////////////////////////////////////////////
+// RENEWABLE CHART
+//////////////////////////////////////////////////////
+
+const renewableCtx =
+document.getElementById('renewableChart');
+
+const renewableChart = new Chart(renewableCtx, {
+
+  type:'line',
+
+  data:{
+    labels: datasets.week.labels,
+
+    datasets:[{
+      label:'Renewable Availability (%)',
+      data: datasets.week.renewable,
+      borderColor:'#00c98d',
+      backgroundColor:'rgba(0,201,141,0.18)',
+      fill:true,
+      tension:0.45,
+      borderWidth:4,
+      pointRadius:5
+    }]
+  },
+
+  options:{
+    responsive:true,
+    maintainAspectRatio:false
+  }
+
+});
+
+//////////////////////////////////////////////////////
+// BUTTON FUNCTION
+//////////////////////////////////////////////////////
+
+function updateCharts(period){
+
+  priceChart.data.labels =
+    datasets[period].labels;
+
+  renewableChart.data.labels =
+    datasets[period].labels;
+
+  priceChart.data.datasets[0].data =
+    datasets[period].price;
+
+  renewableChart.data.datasets[0].data =
+    datasets[period].renewable;
+
+  priceChart.update();
+
+  renewableChart.update();
+
+}
 
 </script>
 
