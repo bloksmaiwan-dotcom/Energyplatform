@@ -1,12 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Peer-to-Peer Energy Sharing Platform</title>
+  <title>EnergyShare Dashboard</title>
 
-  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
@@ -18,145 +16,214 @@
     }
 
     body {
-      background: #0b3d91;
+      background: #062f7a;
       color: white;
       padding: 20px;
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1500px;
       margin: auto;
     }
+
+    /* HEADER */
 
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
 
     .header h1 {
-      font-size: 32px;
-      font-weight: bold;
+      font-size: 42px;
+      font-weight: 700;
     }
 
+    .nav-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-buttons button,
     .battery-btn {
-      background: #00c2ff;
-      color: white;
+      background: #11b8ff;
       border: none;
-      padding: 14px 22px;
+      color: white;
+      padding: 12px 20px;
       border-radius: 12px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 15px;
       transition: 0.3s;
     }
 
+    .nav-buttons button:hover,
     .battery-btn:hover {
-      background: #0099cc;
+      background: #0a9ad8;
     }
+
+    /* DASHBOARD */
 
     .dashboard {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 20px;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
     }
 
     .card {
       background: rgba(255,255,255,0.12);
-      padding: 20px;
-      border-radius: 18px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
     }
 
     .card h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: #bfe7ff;
+      color: #bfe8ff;
+      margin-bottom: 15px;
+      font-size: 20px;
     }
 
     .value {
-      font-size: 34px;
+      font-size: 42px;
       font-weight: bold;
+      margin-bottom: 8px;
     }
 
-    .positive {
-      color: #4dff88;
+    .green {
+      color: #49ff8c;
     }
 
-    .negative {
-      color: #ff7b7b;
+    .red {
+      color: #ff7e7e;
     }
+
+    /* GRAPH SECTION */
 
     .graph-section {
       background: rgba(255,255,255,0.12);
-      padding: 25px;
-      border-radius: 18px;
-      margin-bottom: 25px;
+      padding: 30px;
+      border-radius: 22px;
+      margin-bottom: 35px;
     }
 
     .graph-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .graph-title {
+      font-size: 34px;
+      font-weight: 500;
+    }
+
+    .graph-buttons {
+      display: flex;
       gap: 10px;
     }
 
     .graph-buttons button {
-      margin-left: 10px;
-      padding: 10px 16px;
+      padding: 10px 18px;
       border: none;
       border-radius: 10px;
-      background: #1b5fd1;
+      background: #1f6fff;
       color: white;
       cursor: pointer;
       transition: 0.3s;
     }
 
     .graph-buttons button:hover {
-      background: #2e7bff;
+      background: #3480ff;
     }
 
-    .tips {
+    .charts {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .tip-card {
-      background: rgba(255,255,255,0.12);
-      padding: 20px;
-      border-radius: 18px;
-    }
-
-    .tip-card h3 {
-      margin-bottom: 10px;
-      color: #bfe7ff;
-    }
-
-    .recommendation {
-      margin-top: 15px;
-      background: rgba(0,255,120,0.15);
-      border-left: 4px solid #4dff88;
-      padding: 12px;
-      border-radius: 10px;
-      color: #dfffe9;
-    }
-
-    footer {
-      margin-top: 30px;
-      text-align: center;
-      opacity: 0.8;
-      font-size: 14px;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
     }
 
     canvas {
       background: white;
+      border-radius: 16px;
+      padding: 12px;
+    }
+
+    .recommendation-note {
+      margin-top: 25px;
+      background: rgba(0,255,120,0.12);
+      border-left: 5px solid #49ff8c;
+      padding: 18px;
       border-radius: 12px;
-      padding: 10px;
+      font-size: 18px;
+    }
+
+    /* RECOMMENDATIONS */
+
+    .recommendations {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin-bottom: 35px;
+    }
+
+    .recommendation-card {
+      background: rgba(255,255,255,0.12);
+      padding: 28px;
+      border-radius: 20px;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .recommendation-card h3 {
+      margin-bottom: 14px;
+      color: #bfe8ff;
+      font-size: 26px;
+    }
+
+    /* AI PRICING */
+
+    .ai-section {
+      background: rgba(255,255,255,0.12);
+      padding: 30px;
+      border-radius: 22px;
+      margin-bottom: 30px;
+    }
+
+    .ai-section h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #bfe8ff;
+    }
+
+    .ai-section p {
+      line-height: 1.8;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+
+    footer {
+      text-align: center;
+      opacity: 0.8;
+      margin-top: 30px;
+      font-size: 15px;
+    }
+
+    @media(max-width: 1000px) {
+      .charts {
+        grid-template-columns: 1fr;
+      }
     }
 
   </style>
@@ -166,92 +233,157 @@
 
   <div class="container">
 
+    <!-- HEADER -->
+
     <div class="header">
-      <h1>⚡ EnergyShare Dashboard</h1>
+
+      <div class="header-left">
+        <h1>EnergyShare Dashboard</h1>
+
+        <div class="nav-buttons">
+          <button>Your Profile</button>
+          <button>Contracts</button>
+        </div>
+      </div>
 
       <button class="battery-btn">
-        🔋 Get a Smart Home Battery
+        Get a Smart Home Battery
       </button>
+
     </div>
 
-    <!-- Stats -->
+    <!-- DASHBOARD -->
+
     <div class="dashboard">
 
       <div class="card">
-        <h2>Energy Consumption</h2>
-        <div class="value">24.8 kWh</div>
-        <p>Today's household usage</p>
+        <h2>Weekly Energy Usage</h2>
+        <div class="value">164.2 kWh</div>
+        <p>Total household consumption this week</p>
       </div>
 
       <div class="card">
-        <h2>Energy Production</h2>
-        <div class="value positive">31.2 kWh</div>
-        <p>Generated by solar panels</p>
+        <h2>Weekly Energy Generated</h2>
+        <div class="value green">213.5 kWh</div>
+        <p>Generated through solar production</p>
       </div>
 
       <div class="card">
-        <h2>Money Saved</h2>
-        <div class="value positive">€18.40</div>
-        <p>Shared with neighbors</p>
+        <h2>Energy Sold This Week</h2>
+        <div class="value green">€42.80</div>
+        <p>Revenue from peer-to-peer trading</p>
       </div>
 
       <div class="card">
-        <h2>Energy Purchased</h2>
-        <div class="value negative">€7.20</div>
-        <p>Grid energy costs</p>
+        <h2>Weekly Energy Costs</h2>
+        <div class="value red">€16.90</div>
+        <p>Energy imported from the grid</p>
       </div>
 
     </div>
 
-    <!-- Graph -->
+    <!-- GRAPH SECTION -->
+
     <div class="graph-section">
 
       <div class="graph-header">
-        <h2>📈 Energy Price Trends & Sustainable Usage Times</h2>
+
+        <div class="graph-title">
+          Energy Price Trends & Sustainable Usage Times
+        </div>
 
         <div class="graph-buttons">
           <button>1 Day</button>
           <button>3 Days</button>
           <button>Last Month</button>
         </div>
+
       </div>
 
-      <canvas id="energyChart" height="100"></canvas>
+      <div class="charts">
 
-      <div class="recommendation">
-        ✅ Best time to consume energy today:
+        <canvas id="priceChart"></canvas>
+
+        <canvas id="renewableChart"></canvas>
+
+      </div>
+
+      <div class="recommendation-note">
+        Best time to consume energy today:
         <strong>13:00 - 16:00</strong>
-        (lowest pricing + highest renewable availability)
+        because of the lowest pricing and highest renewable availability.
       </div>
 
     </div>
 
-    <!-- Energy Tips -->
-    <div class="tips">
+    <!-- RECOMMENDATIONS -->
 
-      <div class="tip-card">
-        <h3>💡 Smart Energy Advice</h3>
-        <p>
-          Run washing machines and dishwashers during
-          solar peak production hours.
-        </p>
+    <div class="recommendations">
+
+      <div class="recommendation-card">
+        <h3>Smart Energy Advice</h3>
+
+        Run washing machines, EV charging and dishwashers during
+        midday solar peaks. This can reduce weekly energy costs
+        by approximately 18%.
       </div>
 
-      <div class="tip-card">
-        <h3>🌱 Sustainability Recommendation</h3>
-        <p>
-          Your household exported 6.4 kWh this week.
-          Consider battery storage to maximize local sharing.
-        </p>
+      <div class="recommendation-card">
+        <h3>Sustainability Recommendation</h3>
+
+        Your household exported 49.3 kWh this week.
+        Installing battery storage could increase local sharing efficiency
+        and reduce dependence on external grid imports.
       </div>
 
-      <div class="tip-card">
-        <h3>⚡ Peak Pricing Warning</h3>
-        <p>
-          Energy prices are highest between 18:00 and 21:00.
-          Reduce heavy appliance use during these hours.
-        </p>
+      <div class="recommendation-card">
+        <h3>Peak Pricing Warning</h3>
+
+        Energy prices remain highest between 18:00 and 21:00.
+        Limiting heavy appliance use during these hours can
+        significantly reduce costs.
       </div>
+
+    </div>
+
+    <!-- AI PRICING SECTION -->
+
+    <div class="ai-section">
+
+      <h2>AI Pricing Transparency</h2>
+
+      <p>
+        The EnergyShare AI determines electricity prices based on
+        real-time neighborhood supply and demand conditions.
+      </p>
+
+      <p>
+        Pricing is influenced by:
+      </p>
+
+      <p>
+        • Renewable energy availability in the local network
+        <br>
+        • Household demand peaks
+        <br>
+        • Weather forecasts and expected solar generation
+        <br>
+        • Grid congestion and import dependency
+        <br>
+        • Historical consumption patterns
+      </p>
+
+      <p>
+        The AI prioritizes locally generated renewable energy first,
+        helping households reduce carbon emissions while minimizing
+        overall energy costs.
+      </p>
+
+      <p>
+        During periods of high renewable production,
+        prices automatically decrease to encourage sustainable
+        energy consumption.
+      </p>
 
     </div>
 
@@ -261,51 +393,54 @@
 
   </div>
 
-  <script>
-    const ctx = document.getElementById('energyChart').getContext('2d');
+  <!-- CHARTS -->
 
-    const energyChart = new Chart(ctx, {
+  <script>
+
+    // PRICE CHART
+
+    const priceCtx = document.getElementById('priceChart');
+
+    new Chart(priceCtx, {
       type: 'line',
       data: {
-        labels: [
-          'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'
-        ],
-        datasets: [
-          {
-            label: 'Energy Price (€ / kWh)',
-            data: [0.32, 0.28, 0.24, 0.35, 0.22, 0.18, 0.20],
-            borderColor: '#0b3d91',
-            backgroundColor: 'rgba(11,61,145,0.15)',
-            tension: 0.4,
-            fill: true
-          },
-          {
-            label: 'Renewable Availability',
-            data: [60, 72, 80, 58, 88, 95, 90],
-            borderColor: '#00b894',
-            backgroundColor: 'rgba(0,184,148,0.12)',
-            tension: 0.4,
-            fill: true
-          }
-        ]
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Energy Price (€ / kWh)',
+          data: [0.31, 0.27, 0.24, 0.35, 0.22, 0.19, 0.21],
+          borderColor: '#0d47a1',
+          backgroundColor: 'rgba(13,71,161,0.15)',
+          tension: 0.4,
+          fill: true
+        }]
       },
-
       options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            labels: {
-              color: '#000'
-            }
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
+        responsive: true
       }
     });
+
+    // RENEWABLE CHART
+
+    const renewableCtx = document.getElementById('renewableChart');
+
+    new Chart(renewableCtx, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Renewable Availability (%)',
+          data: [58, 72, 81, 55, 88, 95, 91],
+          borderColor: '#00b894',
+          backgroundColor: 'rgba(0,184,148,0.15)',
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
   </script>
 
 </body>
